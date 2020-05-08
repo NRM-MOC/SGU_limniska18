@@ -42,7 +42,8 @@ analysdata <- bind_rows(metaller,
                         dioxiner_SLV, 
                         hg, 
                         pfas, 
-                        sia)
+                        sia) %>% 
+  mutate(PROV_KOD_ORIGINAL = ifelse(PROV_KOD_ORIGINAL == "C2018/01400-00411", "C2018/01400-01411", PROV_KOD_ORIGINAL))
 
 SGU <- moc_join_SGU(biodata, analysdata)
 
