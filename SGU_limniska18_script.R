@@ -8,7 +8,8 @@ biodata <- read_excel("data/limniska 18 bio data v2.xlsx", guess_max = 100000) %
          TOTV = Vikt, TOTL = Totallängd, ALDR = `Ålder från`) %>% 
   mutate(PROVTAG_DAT2 = as.Date(PROVTAG_DAT2),
          PROVTAG_DAT = as.Date(PROVTAG_DAT),
-         ANTAL_DAGAR = as.numeric(PROVTAG_DAT2-PROVTAG_DAT),
+         ANTAL_DAGAR = 1,
+         # ANTAL_DAGAR = as.numeric(PROVTAG_DAT2-PROVTAG_DAT),
          KON = case_when(Kön == "Hane" ~ "M",
                          Kön == "Hona" ~ "F"),
          TOTV = as.numeric(TOTV),
@@ -28,7 +29,7 @@ dioxiner_UMU <- moc_read_lab("data/Dioxins_Limnic 2019_2018 prover_UMU_NRM_20191
 dioxiner_SLV <- moc_read_lab("data/Dioxins_Limnic 2019_2018 prover_SLV.xlsm")
 hg <- moc_read_lab("data/Hg_Limnic 2019_2018 prover_ACES.xlsm")
 pfas <- moc_read_lab("data/PFASs_Limnic 2019_2018 prover_ACES.xlsm")
-sia <- moc_read_lab("data/SI_Limnic 2019_2018 prover_ACES.xlsm")
+sia <- moc_read_lab("data/SI_Limnic 2019_2018 prover_ACES_MS added TPRC 200508.xlsm")
 
 
 
